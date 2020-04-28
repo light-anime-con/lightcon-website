@@ -952,3 +952,8 @@
     }
 
     .g-recaptcha { margin-bottom: 15px;}
+	
+a img.discord-icon {
+	width: 30px;
+	vertical-align: baseline;
+}
