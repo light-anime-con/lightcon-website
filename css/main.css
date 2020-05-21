@@ -10,6 +10,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
 /* Base */
+	a.coloredlink {
+		text-decoration: underline;
+		color: #0645AD;
+	}
 
     html {
         height: 100vh; /* set viewport constraint */
