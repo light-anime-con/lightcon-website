@@ -1,6 +1,28 @@
 
+.artist {
+    width: 100%;
+}
+
+.artist-rows {
+    width: 100%;
+}
+
+.artist-rows:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .galleria {
-    width: 700px;
-    height: 400px;
+    float: left;
+    width: 50%;
+    min-width: 320px;
+    height: 450px;
     background: #000;
+}
+
+.artist-info {
+    float: left;
+    width: 50%;
+    min-width: 320px;
 }
