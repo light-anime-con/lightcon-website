@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/galleria.css" />
+	<link rel="stylesheet" type="text/css" href="css/artist-alley-gallery.css" />
 	<link rel="stylesheet" type="text/css" href="css/pix_style.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	<link rel="stylesheet" type="text/css" href="css/font-style.css" />
@@ -89,7 +89,15 @@
       <h2 class="pix-black-gray-dark pix-no-margin-top secondary-font pix-margin-bottom-30">
        <span class="pix_edit_text"><strong><span style="text-decoration: underline;">Artist Alley</span><br></strong></span>
       </h2>
-      
+      <div class="galleria">
+        <img src="images/alley_art/artist_00/featured-00.png"/>
+        <img src="images/alley_art/artist_00/featured-01.png"/>
+        <img src="images/alley_art/artist_00/featured-02.png"/>
+        <img src="images/alley_art/artist_00/featured-03.png"/>
+        <img src="images/alley_art/artist_00/featured-04.png"/>
+        <img src="images/alley_art/artist_00/featured-05.png"/>
+        <img src="images/alley_art/artist_00/featured-06.png"/>
+      </div>
      </div>
     </div>
    </div>
@@ -97,7 +105,7 @@
  </div>
 <!-- Javascript -->
 <script src="js/jquery-1.11.2.js" type="text/javascript"></script>
-<script src="js/galleria-1.5.7.min.js" type="text/javascript"></script>
+<script src="galleria/galleria.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/velocity.min.js"></script>
@@ -109,7 +117,8 @@
 <script src="js/custom.js"></script>
 <script type="text/javascript">
   (function() {
-    if (Galleria) { $("body").text("Galleria works") }
+    Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+    Galleria.run('.galleria');
   }());
 </script>
 </body>
