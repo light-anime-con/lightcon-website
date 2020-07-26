@@ -100,7 +100,8 @@
   </div>
  </div>
 <!-- Javascript -->
-<script src="js/jquery-1.11.2.js"></script>
+<script src="js/jquery-1.11.2.js" type="text/javascript"></script>
+<script src="js/galleria-1.5.7.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/velocity.min.js"></script>
@@ -110,5 +111,10 @@
 <script src="js/plugins.js" type="text/javascript"></script>
 <script src="js/jquery.fancybox.min.js" type="text/javascript"></script>
 <script src="js/custom.js"></script>
+<script type="text/javascript">
+  (function() {
+    if (Galleria) { $("body").text("Galleria works") }
+  }());
+</script>
 </body>
 </html>
