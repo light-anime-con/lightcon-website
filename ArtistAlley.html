@@ -78,33 +78,47 @@
   </div>
  </div>
 
-
-
-
-<div class="pix_section gray-bg pix-padding" id="section_call_to_action_1" style="display: block; background-color: rgb(255, 255, 255); background-repeat: repeat-x; padding-top: 60px; padding-bottom: 60px;">
+ <div class="main-content">
   <div class="container">
    <div class="row">
     <div class="col-md-12 col-xs-12 col-sm-12 column ui-droppable">
      <div class="pix-content text-center">
-      <h2 class="pix-black-gray-dark pix-no-margin-top secondary-font pix-margin-bottom-30">
-       <span class="pix_edit_text"><strong><span style="text-decoration: underline;">Artist Alley</span><br></strong></span>
-      </h2>
+      <h2 class="artist-alley-title">Artist Alley</h2>
       <div class="artist">
-        <h4>Bunniary</h4>
         <div class="artist-rows">
-          <div class="galleria">
-            <img src="images/alley_art/artist_00/featured-00.png"/>
-            <img src="images/alley_art/artist_00/featured-01.png"/>
-            <img src="images/alley_art/artist_00/featured-02.png"/>
-            <img src="images/alley_art/artist_00/featured-03.png"/>
-            <img src="images/alley_art/artist_00/featured-04.png"/>
-            <img src="images/alley_art/artist_00/featured-05.png"/>
-            <img src="images/alley_art/artist_00/featured-06.png"/>
-          </div>
+          <div class="galleria-column">
+            <h4 class="artist-name"><a href="http://bunniary.deviantart.com/">Bunniary</a></h4>
+            <div class="galleria">
+              <img src="images/alley_art/artist_00/featured/featured-00.png"/>
+              <img src="images/alley_art/artist_00/featured/featured-01.png"/>
+              <img src="images/alley_art/artist_00/featured/featured-02.png"/>
+              <img src="images/alley_art/artist_00/featured/featured-03.png"/>
+              <img src="images/alley_art/artist_00/featured/featured-04.png"/>
+              <img src="images/alley_art/artist_00/featured/featured-05.png"/>
+              <img src="images/alley_art/artist_00/featured/featured-06.png"/>
+            </div>
+        </div>
+          <div class="artist-spacer"></div>
           <div class="artist-info">
-            <p>A paragraph of garbage.</p>
+            <h5 class="commissions-title">Commissions</h5>
+            <img class="enlargeable-image" src="images/alley_art/artist_00/commissions-00.png" />
+            <div class="artist-profile-section">
+              <h5>Profiles & Contact Info</h5>
+              <ul class="artist-profile-links">
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a class="email-gen" data-gen="bunniary@gmail.com" href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+                <li><a href="http://bunniary.deviantart.com/">DeviantArt</a></li>
+              </ul>
+            </div>
           </div>
         </div>
+        <hr style="background-color: #7e85a7; color: #000; height: 1px;" />
+        <h1>NEXT ARTIST HERE</h1>
       </div>
      </div>
     </div>
@@ -132,6 +146,78 @@
     });
     Galleria.run('.galleria');
   }());
+  function encodeAddress(addr) {
+    var actualAddress = ""
+    for (var i = 0; i < addr.length; i++) {
+      var ch = addr.charCodeAt(i);
+      var ch1 = ch;
+      if (33 <= ch && ch <= 126) {
+        ch = 33 + ((ch - 33) + (i + 1)) % (126 - 33);
+      }
+      console.log("++: " + (i+1) + ", " + ch1 + " => " + ch);
+      actualAddress += String.fromCharCode(ch);
+    }
+    return actualAddress;
+  }
+  function decodeAddress(addr) {
+    var actualAddress = ""
+    for (var i = 0; i < addr.length; i++) {
+      var ch = addr.charCodeAt(i);
+      console.log(ch);
+      if (33 <= ch && ch <= 126) {
+        ch = (126 - ((126-ch+1+i) % (126-33+1)));
+        console.log(ch);
+      }
+      actualAddress += String.fromCharCode(ch);
+    }
+    return actualAddress;
+  }
+  $(document).ready(function() {
+    $(".enlargeable-image").on('click', function() {
+      $("#image-modal .image-caption").text($(this).attr("alt"));
+      $("#image-modal img.modal-content").attr("src", $(this).attr("src"));
+      $("#image-modal").show();
+    });
+    $(".enlargeable-image").each(function() {
+      var elem = $("<p></p>").text("(Click to enlarge)");
+      
+      var parentImg = this;
+      $(elem).on('click', function() {
+        $("#image-modal .image-caption").text($(parentImg).attr("alt"));
+        $("#image-modal img.modal-content").attr("src", $(parentImg).attr("src"));
+        $("#image-modal").show();
+      });
+      $(elem).addClass('click-to-enlarge');
+      $(this).after(elem);
+    });
+    $("#image-modal").on('click', function() {
+      $("#image-modal").hide();
+    });
+    $(".email-gen").each(function() {
+      var data = $(this).attr('data-gen')
+      var parentElem = $(this);
+      setTimeout(function() {
+        var actualAddress = encodeAddress(data);
+        parentElem.attr('href', 'mailto:' + actualAddress);
+        parentElem.text('mailto:' + actualAddress);
+      }, 500);
+    });
+  });
+
+
 </script>
+<!-- The Modal -->
+<div id="image-modal" class="image-modal">
+
+  <!-- The Close Button -->
+  <span class="modal-close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content">
+
+  <!-- Modal Caption (Image Text) -->
+  <div class="modal-caption"></div>
+</div>
+
 </body>
 </html>

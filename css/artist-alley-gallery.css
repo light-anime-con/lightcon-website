@@ -1,6 +1,52 @@
 
+
+body {
+    background-color: #2d384d;
+}
+
+.main-content {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
+
+.artist-alley-title {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    line-height:58px;
+    margin-bottom: 30px;
+}
+
 .artist {
     width: 100%;
+    background-color: #d4dae7;
+    padding: 0 5px 5px;
+    border-radius: 5px;
+    border: 3px solid #7e889e;
+}
+
+.artist h5 {
+    color: #000000;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-weight: 600;
+}
+
+.artist h5.commissions-title {
+    margin-bottom: 3px;
+    margin-top: 23px;
+}
+
+.artist-name {
+    font-size: 2em;
+    text-align: left;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-weight: 1000;
+    margin-left: 20px;
 }
 
 .artist-rows {
@@ -13,16 +59,134 @@
     clear: both;
 }
 
-.galleria {
+.galleria-column {
     float: left;
     width: 50%;
-    min-width: 320px;
+}
+
+.galleria {
+    min-width: 290px;
     height: 450px;
     background: #000;
 }
 
 .artist-info {
+    padding-left: 1%;
     float: left;
     width: 50%;
-    min-width: 320px;
+    min-width: 290px;
+}
+
+.artist-info * {
+    max-width: 100%;
+}
+
+.artist-info img {
+    border: 1px solid #a8b1c5;
+    border-radius: 4px;
+}
+
+.artist-profile-section {
+    border: 0px solid #a8b1c5;
+    background-color: #eef3fd;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.artist-profile-links {
+    text-align: left;
+    color: #566ea0;
+    list-style-type: none;
+}
+
+.artist-profile-links a {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #19397e;
+    text-decoration: underline;
+}
+
+img.enlargeable-image {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+img.enlargeable-image:hover {
+    opacity: 0.7;
+}
+
+.click-to-enlarge {
+    cursor: pointer;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+/* The Modal (background) */
+.image-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.image-modal .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+.image-modal .modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.image-modal .modal-content, .image-modal .modal-caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.image-modal .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.image-modal .modal-close:hover, .image-modal .modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .image-modal .modal-content {
+        width: 100%;
+    }
 }
