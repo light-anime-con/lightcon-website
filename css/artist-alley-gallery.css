@@ -28,6 +28,16 @@ body {
     padding: 0 5px 5px;
     border-radius: 5px;
     border: 3px solid #7e889e;
+    margin-bottom: 5em;
+}
+
+.artist hr {
+    border: 0;
+    width: 96%;
+    margin-top: 4em;
+    margin-bottom: 2em;
+    background-color: #7e85a7;
+    height: 1px;
 }
 
 .artist h5 {
@@ -70,11 +80,27 @@ body {
     background: #000;
 }
 
+.commissions {
+    margin-bottom: 10px;
+}
+
+.click-to-enlarge {
+    cursor: pointer;
+    font-size: x-small;
+    font-weight: bold;
+}
+
 .artist-info {
     padding-left: 1%;
     float: left;
     width: 50%;
     min-width: 290px;
+}
+
+.artist-info a {
+    font-weight: bold;
+    color: #19397e;
+    text-decoration: underline;
 }
 
 .artist-info * {
@@ -96,14 +122,11 @@ body {
 .artist-profile-links {
     text-align: left;
     color: #566ea0;
-    list-style-type: none;
+    list-style-type: square;
 }
 
 .artist-profile-links a {
     font-size: 1.2em;
-    font-weight: bold;
-    color: #19397e;
-    text-decoration: underline;
 }
 
 img.enlargeable-image {
@@ -113,12 +136,6 @@ img.enlargeable-image {
 
 img.enlargeable-image:hover {
     opacity: 0.7;
-}
-
-.click-to-enlarge {
-    cursor: pointer;
-    font-size: x-small;
-    font-weight: bold;
 }
 
 /* The Modal (background) */
