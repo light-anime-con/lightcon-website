@@ -59,21 +59,35 @@ function decodeAddress(addr) {
     return actualAddress;
 }
 
-$(document).ready(function() {
+(function() {
+    Galleria.loadTheme('/galleria/themes/classic/galleria.classic.min.js');
+    Galleria.configure({
+      autoplay: true,
+      responsive: true,
+      lightbox: true
+    });
+    Galleria.run('.galleria');
+  }());
 
-    $(".enlargeable-image").on('click', function() {
-        $("#image-modal .image-caption").text($(this).attr("alt"));
-        $("#image-modal img.modal-content").attr("src", $(this).attr("src"));
+$(document).ready(function() {
+    function showEnlargedImage(elem) {
+        var fullsizeSrc = $(elem).attr("src");
+        if ($(elem).attr('data-fullsize')) {
+            fullsizeSrc = $(elem).attr('data-fullsize');
+        }
+        $("#image-modal .image-caption").text($(elem).attr("alt"));
+        $("#image-modal img.modal-content").attr("src", fullsizeSrc);
         $("#image-modal").show();
+    }
+    $(".enlargeable-image").on('click', function() {
+        showEnlargedImage(this);
     });
     $(".enlargeable-image").each(function() {
         var elem = $("<p></p>").text("(Click to enlarge)");
         
         var parentImg = this;
         $(elem).on('click', function() {
-        $("#image-modal .image-caption").text($(parentImg).attr("alt"));
-        $("#image-modal img.modal-content").attr("src", $(parentImg).attr("src"));
-        $("#image-modal").show();
+            showEnlargedImage(parentImg);
         });
         $(elem).addClass('click-to-enlarge');
         $(this).after(elem);
